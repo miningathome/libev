@@ -1556,6 +1556,7 @@ typedef struct
 /*****************************************************************************/
 
 #ifndef EV_HAVE_EV_TIME
+#if 0
 ev_tstamp
 ev_time (void) EV_THROW
 {
@@ -1572,6 +1573,7 @@ ev_time (void) EV_THROW
   gettimeofday (&tv, 0);
   return tv.tv_sec + tv.tv_usec * 1e-6;
 }
+#endif
 #endif
 
 inline_size ev_tstamp
@@ -2165,7 +2167,7 @@ evpipe_write (EV_P_ EV_ATOMIC_T *flag)
 #ifdef _WIN32
           WSABUF buf;
           DWORD sent;
-          buf.buf = &buf;
+          buf.buf = (char*)&buf;
           buf.len = 1;
           WSASend (EV_FD_TO_WIN32_HANDLE (evpipe [1]), &buf, 1, &sent, 0, 0, 0);
 #else
