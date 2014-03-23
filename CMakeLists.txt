@@ -87,6 +87,7 @@ include_directories("${CMAKE_CURRENT_BINARY_DIR}")
 
 set(public_hdr_loc "include/libev")
 add_library(${libname} ${libtype} ${src} ${public_hdrs} ${internal_hdrs})
+set_target_properties(${libname} PROPERTIES PREFIX "")
 set_target_properties(${libname} PROPERTIES PUBLIC_HEADER "${public_hdrs}")
 target_link_libraries(${libname} ${platformlibs} ${libs})
 
