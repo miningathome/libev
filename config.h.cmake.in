@@ -51,6 +51,9 @@
 /* Define to 1 if you have the `select' function. */
 #cmakedefine HAVE_SELECT 1
 
+/* Define to 1 if you have the <winsock.h> header. */
+#cmakedefine HAVE_WINSOCK_H 1
+
 /* Define to 1 if you have the `signalfd' function. */
 #cmakedefine HAVE_SIGNALFD 1
 

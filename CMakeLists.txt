@@ -2,7 +2,7 @@ cmake_minimum_required (VERSION 2.8)
 
 project(libev C)
 
-include(unifier/unifier.cmake)
+include(unifier/unifier.cmake) 
 
 include(CheckIncludeFiles)
 include(CheckFunctionExists)
@@ -37,6 +37,7 @@ check_include_files(sys/stat.h HAVE_SYS_STAT_H)
 check_include_files(sys/types.h HAVE_SYS_TYPES_H)
 check_include_files(unistd.h HAVE_UNISTD_H)
 check_include_files("assert.h;ctype.h;errno.h;float.h;limits.h;locale.h;math.h;setjmp.h;signal.h;stdarg.h;stddef.h;stdio.h;stdlib.h;string.h;time.h;" STDC_HEADERS)
+check_include_files("winsock.h" HAVE_WINSOCK_H)
 
 # check functions
 check_function_exists(clock_gettime HAVE_CLOCK_GETTIME)
@@ -79,13 +80,14 @@ set(internal_hdrs
 	"event.h"
 	"ev_vars.h")
 
+set(public_hdr_loc "include/libev")
 set(public_hdrs
-	"ev.h"
-	"ev++.h")
+	"${public_hdr_loc}/ev.h"
+	"${public_hdr_loc}/ev++.h")
 
 include_directories("${CMAKE_CURRENT_BINARY_DIR}")
+include_directories("include")
 
-set(public_hdr_loc "include/libev")
 add_library(${libname} ${libtype} ${src} ${public_hdrs} ${internal_hdrs})
 set_target_properties(${libname} PROPERTIES PREFIX "")
 set_target_properties(${libname} PROPERTIES PUBLIC_HEADER "${public_hdrs}")

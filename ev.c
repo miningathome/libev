@@ -90,7 +90,7 @@
 #   define EV_USE_NANOSLEEP 0
 # endif
 
-# if HAVE_SELECT && HAVE_SYS_SELECT_H
+# if HAVE_SELECT || HAVE_WINSOCK_H/* && HAVE_SYS_SELECT_H*/
 #  ifndef EV_USE_SELECT
 #   define EV_USE_SELECT EV_FEATURE_BACKENDS
 #  endif
@@ -182,7 +182,7 @@
 #ifdef EV_H
 # include EV_H
 #else
-# include "ev.h"
+# include "libev/ev.h"
 #endif
 
 #if EV_NO_THREADS

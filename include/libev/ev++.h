@@ -40,6 +40,11 @@
 #ifndef EVPP_H__
 #define EVPP_H__
 
+#ifdef _MSC_VER
+#pragma warning(disable:4800)
+#pragma warning(disable:4290)
+#endif
+
 #ifdef EV_H
 # include EV_H
 #else
