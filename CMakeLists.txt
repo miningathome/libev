@@ -2,7 +2,8 @@ cmake_minimum_required (VERSION 2.8)
 
 project(libev C)
 
-include(unifier/unifier.cmake) 
+set(vendor "${CMAKE_CURRENT_SOURCE_DIR}/..")
+include(${vendor}/unifier/unifier.cmake)
 
 include(CheckIncludeFiles)
 include(CheckFunctionExists)
