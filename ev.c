@@ -1556,7 +1556,7 @@ typedef struct
 /*****************************************************************************/
 
 #ifndef EV_HAVE_EV_TIME
-#if 0
+//#if 0
 ev_tstamp
 ev_time (void) EV_THROW
 {
@@ -1573,7 +1573,7 @@ ev_time (void) EV_THROW
   gettimeofday (&tv, 0);
   return tv.tv_sec + tv.tv_usec * 1e-6;
 }
-#endif
+//#endif
 #endif
 
 inline_size ev_tstamp
